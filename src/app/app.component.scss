@@ -40,42 +40,73 @@ main {
 
 .demo-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-.demo-section {
-  background: #fff;
-  border: 1px solid #e1e1e1;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
   padding: 1rem;
-  transition: transform 0.2s;
-}
-.demo-section:hover {
-  transform: translateY(-4px);
-}
-.demo-section h2 {
-  font-size: 1.125rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 0.25rem;
-}
-.demo-section ul {
-  list-style: none;
-}
-.demo-section li + li {
-  margin-top: 0.5rem;
-}
-.demo-section a {
-  text-decoration: none;
-  color: #0366d6;
-  font-weight: 500;
-}
-.demo-section a:hover {
-  text-decoration: underline;
 }
 
+.demo-section {
+  background: var(--bg-card);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.demo-section h2 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.demo-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.demo-section li {
+  padding: 0.5rem 0;
+}
+
+.demo-section a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.demo-section a:hover {
+  color: var(--primary-color);
+}
+
+/* Optional: Adds a subtle arrow on hover */
+.demo-section a::after {
+  content: " →";
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
+  transform: translateX(-5px);
+}
+
+.demo-section a:hover::after {
+  opacity: 1;
+  transform: translateX(5px);
+}
 footer {
   background: #24292e;
   color: #bbb;
